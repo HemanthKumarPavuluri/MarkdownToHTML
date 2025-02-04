@@ -1,8 +1,9 @@
 from testnode import TextNode, TextType
-from htmlnode import ParentNode, LeafNode, HTMLNode
+from htmlnode import LeafNode
 
 
 def text_node_to_html_node(text_node):
+
     if not isinstance(text_node, TextNode):
         raise TypeError("Expected at TextNode instance")
     
@@ -15,7 +16,7 @@ def text_node_to_html_node(text_node):
     if text_node.text_type == TextType.LINK:
         if not text_node.url:
             raise ValueError("LINK type TextNode must have a url")
-        return LeafNode("a","",{"href": text_node.url})
+        return LeafNode("a",text_node.text,{"href": text_node.url})
     
     if text_node.text_type == TextType.CODE:
         return LeafNode("code", text_node.text)
