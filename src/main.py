@@ -1,4 +1,4 @@
-from testnode import *
+from textnode import *
 
 def main():
     t1 = TextNode("This is text", TextType.BOLD, "http://www.boot.dev")
