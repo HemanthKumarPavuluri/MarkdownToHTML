@@ -145,11 +145,18 @@ def text_to_textnodes(text):
 
     return nodes
 
-text = "This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
+def markdown_to_blocks(markdown):
+    blocks = [block.strip() for block in markdown.strip().split("\n\n")]
 
-nodes = text_to_textnodes(text)
-for node in nodes:
-    print(node)
+    normalized_blocks = [re.sub(r'\s*\n\s*', '\n', block) for block in blocks]
+    return [block for block in normalized_blocks if block]
+
+
+
+
+    
+
+
 
     
 
